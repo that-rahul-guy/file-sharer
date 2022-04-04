@@ -1,0 +1,32 @@
+.copy-text{
+    padding: 0%;
+    background-color: azure;
+    /* width: min-content; */
+    text-align: center;
+}
+.show-text{
+    display: inline-block;
+    vertical-align: middle;
+}
+.copy-icon{
+    display: inline-block;
+    vertical-align: middle;
+    color: black;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    height: fit-content;
+    text-align: center;
+    width: fit-content;
+    vertical-align: middle;
+    font-size: larger;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+}

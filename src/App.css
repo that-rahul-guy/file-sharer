@@ -1,11 +1,37 @@
 .App {
   text-align: center;
+  min-height: max-content;
+  max-height: max-content;
+  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+.upload-child {
+  width: 30%;
+  height: 70%;
+  display: inline-block;
+  border: 2px dashed azure;
+  margin: 5%;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  color: azure;
+}
+
+.download-child {
+  width: 30%;
+  height: 70%;
+  display: inline-block;
+  border: 2px dashed azure;
+  margin: 5%;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  color: azure;
+} 
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

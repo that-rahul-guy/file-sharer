@@ -58,18 +58,19 @@ function Download() {
     });  
   }
 
-
-
   return (
     <div>
         <form onSubmit={handleDownload}>
           <textarea
-          value={downloadToken}
-          onChange={(e) => setDownloadToken(e.target.value)}>
+          placeholder='Enter the CODE here'
+          onChange={(e) => setDownloadToken(e.target.value)}
+          required>
           </textarea>
+          <div>
           <button>
             Download
           </button>
+          </div>
         </form>
     </div>
   )

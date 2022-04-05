@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import copy from 'copy-to-clipboard';
 import { MdContentCopy } from 'react-icons/md';
-// import { ToastContainer,toast } from 'react-toastify';
+import axios from 'axios';
 import './upload.css';
 
 function Upload() {
@@ -13,29 +13,16 @@ function Upload() {
 	const changeHandler = (event) => {
 		setSelectedFile(event.target.files[0]);
 		setIsFilePicked(true);
-		// setIsLink(false);
 	};
+
 
 	const handleSubmission = () => {
 		const formData = new FormData();
-
 		formData.append('file', selectedFile);
-
-		fetch(
-			'/uploadFile',
-			{
-				method: 'POST',
-				body: formData,
-			},
-		)
-			.then((response) => response.json())
-			.then((result) => {
-				setDownloadLink(result['downloadLink']);
-				console.log('Success:', result);
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
+		axios.post('/uploadFile', formData).then(res => {
+			console.log(res);
+			setDownloadLink(res.data['downloadLink']);
+		});
 	}
 
 	const handleCopy = () => {
@@ -75,23 +62,23 @@ function Upload() {
 			
 			{downloadLink ? (
 				<div className='copy-text'>
-					<textarea
-					className='show-text'
-					value={
-						isCopied ? 'Code Copied to Clipboard!' : downloadLink
-					}
-					readOnly
-					>
-					</textarea>
-					
-					<MdContentCopy
-					size={25}
-					className='copy-icon'
-					onClick={handleCopy}
-					>
-					</MdContentCopy>					
+							<textarea
+							className='show-text'
+							value={
+								isCopied ? 'Code Copied to Clipboard!' : downloadLink
+							}
+							readOnly
+							>
+							</textarea>
+							
+							<MdContentCopy
+							size={25}
+							className='copy-icon'
+							onClick={handleCopy}
+							>
+							</MdContentCopy>
 				</div>
-				): null				
+				): null
 			}
 			
 		</div>

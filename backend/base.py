@@ -6,8 +6,8 @@ import random
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'store')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
+if not os.path.isdir(app.config['UPLOAD_FOLDER']):
+    os.mkdir(app.config['UPLOAD_FOLDER'],mode = 0o666)
 def generate_link():
     S = 8  # number of characters in the string.
     # call random.choices() string module to find the string in Uppercase + numeric data.  

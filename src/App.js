@@ -1,9 +1,8 @@
 import './App.css';
-// import { FaFileUpload,FaFileDownload } from 'react-icons/fa';
 import Upload from './components/upload/Upload';
 import Download from './components/download/Download';
 import NavBar from './components/navbar/Navbar';
-
+import { FiUploadCloud,FiDownloadCloud } from 'react-icons/fi';
 
 function App() {
   
@@ -11,16 +10,24 @@ function App() {
     <div className="App">
       <NavBar></NavBar>
       <hr></hr>
+
       <div className="upload-child">
-        <div>
+        <FiUploadCloud
+          size={90}
+        >
+        </FiUploadCloud>
+        <p>Upload a File</p>
         <Upload></Upload>
-        {/* <FaFileUpload size="8em"></FaFileUpload> */}
-        </div>
-        	
       </div>
 
-      <div className="download-child">  
-        {/* <FaFileDownload size="8em"></FaFileDownload> */}
+      <div className="download-child">
+        <FiDownloadCloud
+          size={90}
+        >
+        </FiDownloadCloud>
+        <p>Have code?
+        Download the file!
+        </p>
         <Download></Download>
       </div>
     </div>

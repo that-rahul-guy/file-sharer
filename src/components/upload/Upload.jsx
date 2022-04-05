@@ -46,7 +46,6 @@ function Upload() {
 	return(
         <div>
 			
-			<input type="file" name="file" onChange={changeHandler} />
 			{isFilePicked ? (
 				<div>
 					<p>Filename: {selectedFile.name}</p>
@@ -61,7 +60,10 @@ function Upload() {
 					</p>
 				</div>
 			) : (
+				<div>
+				<input type="file" name="file" onChange={changeHandler} />
 				<p>Select a file to show details</p>
+				</div>
 			)}
 
 			{isFilePicked && !downloadLink ? (

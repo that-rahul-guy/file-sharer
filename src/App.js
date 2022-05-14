@@ -25,9 +25,8 @@ function App() {
           size={90}
         >
         </FiDownloadCloud>
-        <p>Have code?
-        Download the file!
-        </p>
+        <p>Already have a code?</p>
+        <p>Download the file!</p>
         <Download></Download>
       </div>
     </div>

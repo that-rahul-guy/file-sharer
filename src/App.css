@@ -32,6 +32,9 @@
   color: azure;
 } 
 
+hr{
+  width: 80%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -1,22 +1,24 @@
-from flask import Flask, request, send_file, send_from_directory #,redirect, url_for
+from flask import Flask, request, send_from_directory
+from flask_cors import CORS
 import os
 import string   
 import random
 
 app = Flask(__name__)
+CORS(app)
+
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'store')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.isdir(app.config['UPLOAD_FOLDER']):
     os.mkdir(app.config['UPLOAD_FOLDER'],mode = 0o666)
 
 def generate_link():
-    S = 10  # number of characters in the string.
+    S = 12  # number of characters in the string.
     # call random.choices() string module to find the string in Uppercase + numeric data.  
-    ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    
-    print("The randomly generated string is : " + str(ran)) # print the random data
+    ran = ''.join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k = S))    
     return ran
 
-@app.route('/uploadFile',methods = ['POST', 'GET'])
+@app.route('/uploadFile',methods = ['POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -37,7 +39,7 @@ def upload_file():
         store_path = os.path.join(app.config['UPLOAD_FOLDER'],link)
         os.mkdir(store_path,mode = 0o666)
         file.save(os.path.join(store_path,file.filename))
-        
+        print("Link is:", link)
         return {
             'status': 200,
             'message': 'Uploaded Successfully!',
@@ -58,10 +60,9 @@ def file_name():
     the_file = os.listdir(store_path)[0]
     return {
         'status': 200,
-        'message': 'karna download',
+        'message': 'success',
         'fileName': the_file
         }
-
 
 @app.route('/')
 def hello():

@@ -19,7 +19,7 @@ function Upload() {
 	const handleSubmission = () => {
 		const formData = new FormData();
 		formData.append('file', selectedFile);
-		axios.post('/uploadFile', formData).then(res => {
+		axios.post('http://localhost:5000/uploadFile', formData).then(res => {
 			console.log(res);
 			setDownloadLink(res.data['downloadLink']);
 		});

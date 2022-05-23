@@ -9,7 +9,7 @@ function Download() {
     //And any time any dependency value changes
     if(downloadToken){
       fetch(
-        '/fileName?token='+downloadToken,
+        'http://localhost:5000/fileName?token='+downloadToken,
         {
           method: 'GET'
         }
@@ -30,7 +30,7 @@ function Download() {
     e.preventDefault();
 
     fetch(
-      '/downloadFile?link='+downloadToken,
+      'http://localhost:5000/downloadFile?link='+downloadToken,
       {
         method: 'GET'
       }

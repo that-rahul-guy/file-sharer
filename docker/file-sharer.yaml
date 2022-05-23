@@ -1,0 +1,12 @@
+version: '3'
+services:
+  file-sharer-back:
+    container_name: fs_back
+    image: fs_backend:1.0
+    ports:
+      - 5000:5000
+  file-sharer-front:
+    container_name: fs_front
+    image: fs_frontend:1.0
+    ports:
+      - 3000:3000
